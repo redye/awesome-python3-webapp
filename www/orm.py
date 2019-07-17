@@ -70,7 +70,7 @@ async def execute(sql, args, autocommit=True):
 
 def create_args_string(num):
 	L = []
-	for n in range(num):
+	for _ in range(num):
 		L.append('?')
 	return ', '.join(L)
 
@@ -109,7 +109,6 @@ class FloatField(Field):
 class TextField(Field):
 	def __init__(self, name=None, default=None):
 		super().__init__(name, 'text', False, default)
-
 
 
 class ModelMetaclass(type):
@@ -191,7 +190,7 @@ class Model(dict, metaclass=ModelMetaclass):
 			sql.append('where')
 			sql.append(where)
 
-		if args  is None:
+		if args is None:
 			args = []
 
 		orderBy = kw.get('orderBy', None)
@@ -228,7 +227,7 @@ class Model(dict, metaclass=ModelMetaclass):
 
 	@classmethod
 	async def find(cls, pk):
-		' find object by primary key.'
+		logging.info(' find object by primary key.')
 		rs = await select('%s where `%s`=?' % (cls.__select__, cls.__primary_key__), [pk], 1)
 		if len(rs) == 0:
 			return None

@@ -14,10 +14,14 @@ async def test(loop):
 	
 	await orm.create_pool(loop, user='www-data', password='www-data', database='awesome')
 
-	u = User(id='00156334720523413f5dfc88a1343efb1a607f1a4a674d0000')
+	u = User(id='001563346612358edaf8361163d4a7b8519752ad4eeb3e8000')
 
 	# await u.save()
-	await u.remove()
+	# await u.remove()
+
+	users = await User.findAll('`id`="001563346612358edaf8361163d4a7b8519752ad4eeb3e8000"')
+	for u in users:
+		print('user => ', u)
 
 	await orm.destroy_pool()
 
