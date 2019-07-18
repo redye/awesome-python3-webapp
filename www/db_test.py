@@ -19,7 +19,7 @@ async def test(loop):
 	# await u.save()
 	# await u.remove()
 
-	users = await User.findAll('`id`="001563346612358edaf8361163d4a7b8519752ad4eeb3e8000"')
+	users = await User.findAll()
 	for u in users:
 		print('user => ', u)
 
