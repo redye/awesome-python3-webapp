@@ -9,7 +9,7 @@ A python3 webapp demo
 * [构建前端](#template)
 * [编写 API](#api)
 * [Cookies](#cookies)
-
+* [热更新](#hotUpdate)
 
 ## <span id='prepare'>前期准备</span>
 * python3
@@ -104,7 +104,7 @@ A python3 webapp demo
 * cookie 的存取与解析
 * 利用middle在处理URL之前，把cookie解析出来，并将登录用户绑定到 `request` 对象上，这样，后续的URL处理函数就可以直接拿到登录用户
 
-## 热更新
+## <span id='hotUpdate'>热更新</span>
 * `watchdog` 利用操作系统的 API 监控目录文件的变化，并发送通知 
 
 	```
