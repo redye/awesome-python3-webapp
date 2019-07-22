@@ -7,7 +7,6 @@ import aiomysql
 
 def log(sql, args=()):
 	logging.info('SQL: %s' % sql)
-	print('SQL: %s' % sql)
 
 
 async def create_pool(loop, **kw):
@@ -253,65 +252,5 @@ class Model(dict, metaclass=ModelMetaclass):
 		rows = await execute(self.__delete__, args)
 		if rows != 1:
 			logging.warn('failed to remove by primary key: affected rows: %s' % rows)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

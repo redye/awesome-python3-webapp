@@ -103,3 +103,13 @@ A python3 webapp demo
 	
 * cookie 的存取与解析
 * 利用middle在处理URL之前，把cookie解析出来，并将登录用户绑定到 `request` 对象上，这样，后续的URL处理函数就可以直接拿到登录用户
+
+## 热更新
+* `watchdog` 利用操作系统的 API 监控目录文件的变化，并发送通知 
+
+	```
+	pip3 install watchdog
+	```
+* 利用 `watchdog` 接收文件变化的通知，如果是.py文件，就自动重启 `app.py` 进程。
+* 利用 Python 自带的 `subprocess` 实现进程的启动和终止，并把输入输出重定向到当前进程的输入输出中。
+* `./pymonitor.py app.py`

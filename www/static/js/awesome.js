@@ -358,12 +358,20 @@ if (typeof(Vue)!=='undefined') {
         return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes();
     });
     Vue.component('pagination', {
-        template: '<ul class="uk-pagination">' +
+        props: ['page'],
+        data: function() {
+            return {
+                has_previous: this.page ? this.page.has_previous : false,
+                has_next: this.page ? this.page.has_next : false,
+                page_index: this.page ? this.page.page_index : 1,
+            };
+        },
+        template: '<ul class="uk-pagination uk-flex-center">' +
                 '<li v-if="! has_previous" class="uk-disabled"><span><i class="uk-icon-angle-double-left"></i></span></li>' +
-                '<li v-if="has_previous"><a v-attr="onclick:\'gotoPage(\' + (page_index-1) + \')\'" href="#0"><i class="uk-icon-angle-double-left"></i></a></li>' +
+                '<li v-if="has_previous"><a @click="gotoPage(page_index-1)" href="#0"><i class="uk-icon-angle-double-left"></i></a></li>' +
                 '<li class="uk-active"><span v-text="page_index"></span></li>' +
                 '<li v-if="! has_next" class="uk-disabled"><span><i class="uk-icon-angle-double-right"></i></span></li>' +
-                '<li v-if="has_next"><a v-attr="onclick:\'gotoPage(\' + (page_index+1) + \')\'" href="#0"><i class="uk-icon-angle-double-right"></i></a></li>' +
+                '<li v-if="has_next"><a @click="gotoPage(page_index+1)" href="#0"><i class="uk-icon-angle-double-right"></i></a></li>' +
             '</ul>'
     });
 }

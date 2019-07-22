@@ -26,13 +26,15 @@
 				<li><a href="http://www.baidu.com" target="_blank"><i class="uk-icon-book"></i> 教程</a></li>
 				<li><a href="http://www.baidu.com" target="_blank"><i class="uk-icon-code"></i> 源码</a></li>
 			</ul>
+
 			<div class="uk-navbar-flip">
 				<ul class="uk-navbar-nav">
 					{% if __user__ %}
 						<li class="uk-parent" data-uk-dropdown>
 							<a href="#0"><i class="uk-icon-user"></i> {{ __user__.name }}</a>
 							<div class="uk-dropdown uk-dropdown-navbar">
-								<ul class="uk-nav uk-navbar-nav">
+								<ul class="uk-nav uk-navbar-dropdown-nav">
+									<li><a href="/manage/blogs"><i class="uk-icon-cog"></i> 管理</a></li>
 									<li><a href="/signout"><i class="uk-icon-sign-out"></i> 登出</a></li>
 								</ul>
 							</div>
