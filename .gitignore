@@ -4,3 +4,7 @@
 
 .vscode/
 dist/
+*.xcworkspacedata
+IDEWorkspaceChecks.plist
+*.xcuserstate
+xcschememanagement.plist
